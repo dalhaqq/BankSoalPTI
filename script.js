@@ -2,6 +2,10 @@ var pertanyaan;
 $( document ).ready(function() {
   $.getJSON("database.json", function(data){
     pertanyaan = Object.entries(data);
+    for(pert of pertanyaan){
+      soalan = pert[1];
+      console.log(soalan.soal);
+    }
   });
   $(".card-container").html(`<div class="card">
     <h3>Soal 2</h3>
