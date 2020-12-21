@@ -57,8 +57,8 @@ $( document ).ready(function() {
       soalhtml += `</div>`
       }
     }
+    $(".card-container").html(soalhtml);
   });
-  $(".card-container").html(soalhtml);
 });
 $("#search").on("keyup", function() {
    var searchValue = $(this).val().trim().toLowerCase();
