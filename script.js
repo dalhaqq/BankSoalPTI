@@ -1,3 +1,8 @@
+var items;
+$.getJSON("database.json", function(data){
+  items = data;
+});
+
 $("#search").on("keyup", function() {
    var searchValue = $(this).val().trim().toLowerCase();
    $(".card").each(function(index) {
@@ -10,3 +15,7 @@ $("#search").on("keyup", function() {
        }
    });
 });
+
+for (const [key, value] of Object.entries(items)) {
+  console.log(`${key}: ${value}`);
+}
