@@ -1,27 +1,64 @@
-var pertanyaan;
+var pertanyaan
+var soalhtml = ""
 $( document ).ready(function() {
   $.getJSON("database.json", function(data){
-    pertanyaan = Object.entries(data);
+    pertanyaan = Object.entries(data)
     for(pert of pertanyaan){
       soalan = pert[1];
-      console.log(soalan.soal);
+      soalhtml += `<div class="card">
+      <h3>`
+      soalhtml += soalan.soal
+      soalhtml +=`</h3>`
+      soalhtml +=`<div class="alert `
+      if(soalan.benar == "A"){
+        soalhtml += `alert-success`
+      }else{
+        soalhtml += `alert-danger`
+      }
+      soalhtml += `" role="alert">`
+      soalhtml += soalan.a
+      soalhtml += `</div>`
+      soalhtml +=`<div class="alert `
+      if(soalan.benar == "B"){
+        soalhtml += `alert-success`
+      }else{
+        soalhtml += `alert-danger`
+      }
+      soalhtml += `" role="alert">`
+      soalhtml += soalan.b
+      soalhtml += `</div>`
+      soalhtml +=`<div class="alert `
+      if(soalan.benar == "C"){
+        soalhtml += `alert-success`
+      }else{
+        soalhtml += `alert-danger`
+      }
+      soalhtml += `" role="alert">`
+      soalhtml += soalan.c
+      soalhtml += `</div>`
+      soalhtml +=`<div class="alert `
+      if(soalan.benar == "D"){
+        soalhtml += `alert-success`
+      }else{
+        soalhtml += `alert-danger`
+      }
+      soalhtml += `" role="alert">`
+      soalhtml += soalan.d
+      soalhtml += `</div>`
+      if(soalan.e!='' && soalan.e!=' '){
+        soalhtml +=`<div class="alert `
+      if(soalan.benar == "E"){
+        soalhtml += `alert-success`
+      }else{
+        soalhtml += `alert-danger`
+      }
+      soalhtml += `" role="alert">`
+      soalhtml += soalan.e
+      soalhtml += `</div>`
+      }
     }
   });
-  $(".card-container").html(`<div class="card">
-    <h3>Soal 2</h3>
-    <div class="alert alert-success" role="alert">
-  A. Jawaban yang benar
-    </div>
-    <div class="alert alert-danger" role="alert">
-  B. Jawaban yang salah
-    </div>
-    <div class="alert alert-danger" role="alert">
-  C. Jawaban yang salah
-    </div>
-    <div class="alert alert-danger" role="alert">
-  D. Jawaban yang salah
-    </div>
-  </div>`);
+  $(".card-container").html(soalhtml);
 });
 $("#search").on("keyup", function() {
    var searchValue = $(this).val().trim().toLowerCase();
