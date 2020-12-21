@@ -1,4 +1,4 @@
-var pertanyaan
+var pertanyaan;
 $( document ).ready(function() {
   $.getJSON("database.json", function(data){
     pertanyaan = Object.entries(data);
