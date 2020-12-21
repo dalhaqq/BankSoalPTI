@@ -1,8 +1,6 @@
-var items;
-
 $( document ).ready(function() {
   $.getJSON("database.json", function(data){
-    items = data;
+    console.log(Object.entries(data));
   });
   $(".card-container").html(`<div class="card">
     <h3>Soal 2</h3>
