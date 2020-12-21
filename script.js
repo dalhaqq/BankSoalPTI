@@ -31,6 +31,3 @@ $("#search").on("keyup", function() {
    });
 });
 
-for (const [key, value] of Object.entries(items)) {
-  console.log(`${key}: ${value}`);
-}
