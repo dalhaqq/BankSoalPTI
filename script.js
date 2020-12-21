@@ -56,6 +56,7 @@ $( document ).ready(function() {
       soalhtml += soalan.e
       soalhtml += `</div>`
       }
+      soalhtml += `</div>`
     }
     $(".card-container").html(soalhtml);
   });
