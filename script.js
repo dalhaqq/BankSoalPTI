@@ -1,5 +1,6 @@
 var pertanyaan
 var soalhtml = ""
+var tekssoal
 $( document ).ready(function() {
   $.getJSON("database.json", function(data){
     pertanyaan = Object.entries(data)
@@ -7,7 +8,8 @@ $( document ).ready(function() {
       soalan = pert[1];
       soalhtml += `<div class="card">
       <h3>`
-      soalhtml += soalan.soal.replace("\n", "<br>")
+      tekssoal = soalan.soal.replace("\n", "<br>")
+      soalhtml += tekssoal
       soalhtml +=`</h3>`
       soalhtml +=`<div class="alert `
       if(soalan.benar == "A"){
